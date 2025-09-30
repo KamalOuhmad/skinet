@@ -3,7 +3,7 @@ id : number;
 name : string;
 description : string;
 price : number;
-pictureURL: string;
+pictureUrl: string;
 type: string;
 brand: string;
 quantityInStock: number;

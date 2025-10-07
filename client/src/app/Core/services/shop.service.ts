@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject} from '@angular/core';
+import { map } from 'rxjs/operators';
 import { Pagination } from '../../Shared/models/pagination';
 import { Product } from '../../Shared/models/product';
 import { ShopParams } from '../../Shared/models/shopParams';
@@ -36,7 +37,18 @@ getProducts(shopParams: ShopParams){
 }
 
 getProduct(id: number){
-  return this.http.get<Product>(this.baseUrl + 'products/' + id);
+  return this.http.get<any>(this.baseUrl + 'products/' + id).pipe(
+    map((item: any) => ({
+      id: item.id ?? item.Id,
+      name: item.name ?? item.Name,
+      description: item.description ?? item.Description,
+      price: item.price ?? item.Price,
+      pictureUrl: item.pictureUrl ?? item.PictureUrl ?? item.PictureURL,
+      type: item.type ?? item.Type,
+      brand: item.brand ?? item.Brand,
+      quantityInStock: item.quantityInStock ?? item.QuantityInStock
+    } as Product))
+  );
 }
 getBrands(){
   if (this.brands.length > 0) return; 

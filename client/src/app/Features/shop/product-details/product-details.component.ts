@@ -9,6 +9,7 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatDialogTitle } from '@angular/material/dialog';
 import { MatDivider } from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
@@ -20,6 +21,8 @@ import { MatDivider } from '@angular/material/divider';
     MatInput,
     MatLabel,
     MatDivider
+    ,
+    CommonModule
     ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'

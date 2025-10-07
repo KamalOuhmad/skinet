@@ -14,16 +14,17 @@
 .match-input-height {
     height: var(--mat-form-feild-control-height) !important;
 }
+/* }
 .custom-theme{
     @include mat.all-component-themes($customTheme);
     .mdc-button, .mdc-raised-button, .mdc-stroked-button, .mdc-flat-button{
         @include rounded-md
     }
-}
-.container{
+} */
+/* .container{
     @include mx-auto;
     @include max-w-screen-2xl;
-}
+} */
 .text-primary{
     color: #7d00fa;
 }
@@ -33,4 +34,19 @@ button.match-input-height{
 
 .mdc-notched-outline__notch{
     border-right-style: none !important;
+}
+
+.snackbar-error{
+    @include mat.snack-bar-overrides((
+        button-color: white,
+        container-color: red,
+        supporting-text-color: white
+    ));
+}
+.snackbar-success{
+    @include mat.snack-bar-overrides((
+        button-color: white,
+        container-color: green,
+        supporting-text-color: white
+    ));
 }
